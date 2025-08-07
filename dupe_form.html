@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dupe Request</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+
+    #loading {
+      margin-top: 20px;
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Item Duplication Request</h2>
+
+  <input type="text" id="username" placeholder="Add Username">
+  <input type="text" id="item" placeholder="Add Thing to Dupe (e.g. shiny_dragonfly)">
+  <br>
+  <button onclick="submitForm()">Submit</button>
+
+  <div id="loading"></div>
+  <div id="result"></div>
+
+  <script>
+    function submitForm() {
+      const username = document.getElementById("username").value.trim();
+      const item = document.getElementById("item").value.trim();
+      const loading = document.getElementById("loading");
+      const result = document.getElementById("result");
+
+      result.textContent = "";
+      loading.textContent = "";
+
+      if (username !== "" && item !== "") {
+        loading.textContent = "Processing request...";
+
+        setTimeout(() => {
+          loading.textContent = "";
+          result.textContent = "Please wait 10–67 days";
+        }, 2000);
+      } else {
+        alert("Please fill in both fields.");
+      }
+    }
+  </script>
+
+</body>
+</html>
